@@ -7,14 +7,14 @@ app = FastAPI()
 stored_book: Book = None
 
 # Show the current book (GET)
-@app.get("/book")
+@app.get("/text_book")
 def get_book():
     if stored_book is None:
         raise HTTPException(status_code=404, detail="No book found")
     return stored_book
 
 # Add a new book (POST)
-@app.post("/book")
+@app.post("/text_book")
 def create_book(book: Book):
     global stored_book
     if stored_book is not None:
@@ -23,7 +23,7 @@ def create_book(book: Book):
     return {"message": "Book created successfully"}
 
 # Update the book (PUT)
-@app.put("/book")
+@app.put("/text_book")
 def update_book(book: Book):
     global stored_book
     if stored_book is None:
@@ -32,7 +32,7 @@ def update_book(book: Book):
     return {"message": "Book updated successfully"}
 
 # Delete the book (DELETE)
-@app.delete("/book")
+@app.delete("/text_book")
 def delete_book():
     global stored_book
     if stored_book is None:
