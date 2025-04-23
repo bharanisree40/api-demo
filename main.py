@@ -7,7 +7,7 @@ app = FastAPI()
 stored_book: Book = None
 
 # Show the current book (GET)
-@app.get("/text_book")
+@app.get("/book")
 def get_book():
     if stored_book is None:
         raise HTTPException(status_code=404, detail="No book found")
